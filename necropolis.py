@@ -355,13 +355,17 @@ if cave ==  True:
             if bosshealth == 0:
                 print("Woah! That was easier than I thought.")
                 
-                Scpre = Score + 100
+                Score = Score + 100
                 
                 time.sleep(1)
                 print("Congrats on winning the game and traversing through the Necropolis alive. I hope you enjoyed!")   
 
                 time.sleep(1)
                 print("Your total score was" , Score)
+ 
+                #If you get a perfect score, you get this message
+                if Score == 125:
+                    print("Wow! You had a perfect score :D")
  
 
 
