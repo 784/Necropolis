@@ -62,27 +62,34 @@ caveornot.upper()
 cave = False
 road = False
 
+#If you choose to enter the cave, you're told this message
 if caveornot == "C":
     print("\n" , username1 , "has entered the gloomy cave \n")
     cave = True
     time.sleep(2)
 
+#If you choose to go along the path, you're told this
 else:
     print(username1 , "has chosen to take the long road...")
     road = True
     time.sleep(2)
 
-
+#If you entered the cave, you're given this message
 if cave == True:
     print("Welcome to the cave! It's the gloomiest, scariest place you'll ever visit in the Necropolis... good luck. \n")
 
+#If you decided to go on the road, you're given this message
 if road == True:
     print("Welcome to the road! You've chosen the longer path, like many before. \n ")
 
 #Choosing to go on the road
 if road == True:
     leftandright = input("Would you like to go left or right? Type L for left and R for right: ")
+    
+    #Makes it uppercase
     leftandright.upper()
+    
+    #If you choose to go left, you fall down a hole and die
     if leftandright == "L":
         time.sleep(2)
         print("*YOU FALL DOWN AN INFINITY HOLE* You should've looked down before you stepped. You lost...")
@@ -102,9 +109,12 @@ if road == True:
                         ░░░░░░░░░░░░▀▀   """)
         road = False
     
+    #If you decide to go right, you're given 25 points and given this message. For the maximum amount of points, 125, you need to go onto the road first and then enter the cave, defeating the boss without being hit once.
     if leftandright == "R":
         time.sleep(2)
         print("\nYou chose the right path (get it)! Here's 25 points for getting it correct.")
+        
+        #Adds 25 to your score and prints it
         Score = Score + 25
         print ("Your current score is" , Score ,"\n")
 
@@ -123,6 +133,7 @@ if road == True:
         #Making it uppercase
         quitadventure.upper()
 
+        #If you decide to quit, you're given a peaceful ending
         if quitadventure == "Y":
             print("I'm sure there's plenty of firewood out here to keep me warm for the night.")
             time.sleep(1)
@@ -130,6 +141,7 @@ if road == True:
             time.sleep(2)
             print("\n THE END \n")
 
+        #If you don't decide to quit, you're able to walk back towards the path and enter the cave 
         if quitadventure == "N":
                 print("*You decide to walk back down the path towards the cave*")
                 time.sleep(3)
@@ -155,8 +167,11 @@ if cave ==  True:
 
         time.sleep(3)
 
+        #The boss roars
         print("\nRAWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n")
         time.sleep(3)   
+        
+        #A little hint about which way you have to go
         print("OH NO!!! I WASN't SUPPOSED TO SEE THIS YET")
         time.sleep(2)
         print("*Wow, he's gigantic.*")
@@ -169,7 +184,7 @@ if cave ==  True:
         #Setting the player health to 100
         playerhealth = 100
 
-        #Boss fight
+        #Boss fight 
         while bosshealth > 0:
             time.sleep(1)
             print("The boss has" , bosshealth , "health")
@@ -195,13 +210,14 @@ if cave ==  True:
                         time.sleep(1)
                         print("Your current score is" , Score)
 
-            #If the number is less than 3, you lose 10 health
+            #If the number is less than 3, you lose 20 health
             if randomnum < 3:
                 playerhealth = playerhealth - 20
                 Score = Score - 10
                 print("You have" , playerhealth , "health left.")
                 print("Your current score is" , Score)
 
+            #If your health is less than 0, you lose
             if playerhealth < 0:
                 print("You've lost.")
                 print("""     
@@ -229,6 +245,7 @@ if cave ==  True:
         time.sleep(2)
         print("\n*You see a shiny object*") 
         
+        #Shiny is referring to the sword that's important later on in the game for getting a perfect score
         shiny = input("Do you want to pick it up? Type Y for yes and N for no: ")
         
         #Makes it uppercase
@@ -249,12 +266,18 @@ if cave ==  True:
             #Slime battle
             while slimehealth > 0:
                 time.sleep(1)
+                
+                #Print the slimes health
                 print("The slime has" , slimehealth , "health")
+                
+                #Asks if you want to use your sword to attack
                 usesword = input("Do you want to use your sword to attack the slime? Type Y for yes and N for no: ")
 
+                #Attacks the slime if you say so
                 if usesword == "Y":
                     slimehealth = slimehealth - 25
 
+                #If you don't attack, the slime attacks you and you lose 10 points
                 if usesword == "N":
                     print("Oh no! The slime has hit you. Your score has decreased by 10")
                     Score = Score - 10
@@ -283,8 +306,12 @@ if cave ==  True:
         
     #If you chose to pick up the sword earlier, you'll do more damage    
     if has_sword == True:
+        
+        #The boss roars
         print("\nRAWRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n")
         time.sleep(3)    
+        
+        #The player says that he's gigantic
         print("*Wow, he's gigantic.*")
         time.sleep(2)
         print("\n" , username1.upper() , "VS BOSS \n")
@@ -400,6 +427,7 @@ if cave ==  True:
                 print("You have" , playerhealth , "health left.")
                 print("Your current score is" , Score)
 
+            #If you health is less than 0, you lose and you're shown this thumbs down
             if playerhealth < 0:
                 print("You've lost.")
                 print("""     
